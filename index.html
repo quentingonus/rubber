@@ -96,12 +96,11 @@
                 this.rubber_price_tocom = tocom_result.data['RSS3 Rubber Futures'];
             },
             get_rubber_price: function () {
-                axios.get('http://www.shfe.com.cn/data/delaymarket_ru.dat')
+                axios.get("https://kmd-rubber.herokuapp.com/")
                     .then(res => {
-                        console.log(res.data);
-                        //res = res.data;
-                        //this.rubber_price_tocom = res.tocom_data;
-                        //this.rubber_price_shfe = res.shfe_data;
+                        res = res.data;
+                        this.rubber_price_tocom = res.tocom_data;
+                        this.rubber_price_shfe = res.shfe_data;
                     });
             },
             upperdown_watcher: function (input_price_change) {
