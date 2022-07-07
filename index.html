@@ -97,7 +97,7 @@
                 this.rubber_price_tocom = tocom_result.data['RSS3 Rubber Futures'];
             },
             get_rubber_price: function () {
-                axios.post('https://aster-rubber.herokuapp.com/')
+                axios.post('https://kmd-rubber.herokuapp.com/')
                     .then(res => {
                         res = res.data;
                         this.rubber_price_tocom = res.tocom_data;
