@@ -18,7 +18,7 @@
     <div class="root w-screen">
       <div class="fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2">
         <button
-          class="btn loading w-80"
+          class="btn loading w-96"
           v-if="rubber_price_tocom == null && rubber_price_shfe == null"
         >
           Tocom Japan မှ ရာဘာစျေး ရယူနေပါသည်
@@ -50,7 +50,7 @@
               <tr>
                 <td>{{rubber_price_tocom.currentPrice}}</td>
                 <td
-                  :class="{'text-danger' : !tocom_price_change, 'text-success' : tocom_price_change}"
+                  :class="{'text-red-500' : !tocom_price_change, 'text-green-500' : tocom_price_change}"
                 >
                   {{tocom_price_compare}}
                 </td>
@@ -124,7 +124,7 @@
         rubber_price_shfe: null,
         url: {
           tocom: "https://cf.market-info.jp/jpx/json/commodity_value?lang=en",
-          shfe: "https://api.codetabs.com/v1/proxy?quest=https://www.shfe.com.cn/data/delaymarket_ru.dat",
+          shfe: "https://corsproxy.io/?https://www.shfe.com.cn/data/delaymarket_ru.dat",
         },
       },
       methods: {
