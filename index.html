@@ -123,16 +123,16 @@
         rubber_price_tocom: null,
         rubber_price_shfe: null,
         url: {
-          tocom: "https://cf.market-info.jp/jpx/json/commodity_value?lang=en",
-          shfe: "https://corsproxy.io/?https://tsite.shfe.com.cn/data/delaymarket_ru.dat",
+          tocom: `https://cf.market-info.jp/jpx/json/commodity_value?lang=en&_=${new Date().getTime()}`,
+          shfe: `https://corsproxy.io/?https://tsite.shfe.com.cn/data/delaymarket_ru.dat?_=${new Date().getTime()}`,
         },
       },
       methods: {
         async get_rubber_price() {
-          let tocom = await axios.get(`${this.url.tocom}?_=${new Date().getTime()}`);
+          let tocom = await axios.get(this.url.tocom);
           tocom = tocom["data"]["RSS3 Rubber Futures"];
           this.rubber_price_tocom = tocom;
-          let shfe = await axios.get(`${this.url.shfe}?_=${new Date().getTime()}`);
+          let shfe = await axios.get(this.url.shfe);
           shfe = shfe["data"];
           this.rubber_price_shfe = shfe;
         },
