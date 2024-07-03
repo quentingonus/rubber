@@ -129,10 +129,10 @@
       },
       methods: {
         async get_rubber_price() {
-          let tocom = await axios.get(this.url.tocom);
+          let tocom = await axios.get(`${this.url.tocom}?_=${new Date().getTime()}`);
           tocom = tocom["data"]["RSS3 Rubber Futures"];
           this.rubber_price_tocom = tocom;
-          let shfe = await axios.get(this.url.shfe);
+          let shfe = await axios.get(`${this.url.shfe}?_=${new Date().getTime()}`);
           shfe = shfe["data"];
           this.rubber_price_shfe = shfe;
         },
